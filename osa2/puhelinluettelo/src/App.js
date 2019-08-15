@@ -144,7 +144,7 @@ const addName = (event) => {
     const result = window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)
     if (result) {
       const id = persons.find(per => per.name === newName).id
-      const url = `http://localhost:3001/persons/${id}`
+      const url = `http://localhost:3001/api/persons/${id}`
       axios.put(url, nameObject).then(response => {
           setPersons(persons.map(per => per.name !== newName ? per : response.data))
           setNewName('')
